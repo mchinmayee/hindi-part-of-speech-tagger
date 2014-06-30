@@ -12,7 +12,7 @@ The sample file provided with the tool is [hindi.input.txt](./hindi-part-of-spee
 
 For a sample output, see [hindi.sample.out.txt](./hindi-part-of-speech-tagger/src/master/hindi.sample.out.pdf).
 
-## OUTPUT FORMAT
+## Output Format:
 
 The output format contains the following columns separated by tab space.
 
@@ -22,7 +22,7 @@ The output format contains the following columns separated by tab space.
 
 You probably require only the first 3 columns. The main pos tag is highlighted in bold.
 
-## TAGSET DETAILS:
+## Tagset:
 
 We use IIIT Tagset described in [posguidelines.pdf](./hindi-part-of-speech-tagger/src/master/posguidelines.pdf) (Bharati et al., 2006). See  for more details.
 
@@ -40,11 +40,11 @@ Case                4      any, d, o, null
 ```
 
 
-## Citation
+## Citation:
 
 Please cite http://sivareddy.in/downloads wherever required.
 
-## DESCRIPTION
+## Description
 
 The tagger is similar to Model 5 described in Table 2 of (Reddy and Sharoff 2011), but with a focus on Hindi. Short synopsis is presented below. 
 
@@ -63,7 +63,7 @@ This work is supported by Intellitext [1] project and Lexical Computing Ltd [2] 
 [2] http://www.sketchengine.co.uk/?page=Website/Company
 
 
-## CONTACT
+## Contact:
 
 For additional corpora and tools for other languages, please email your queries to
 siva@sivareddy.in
@@ -109,7 +109,7 @@ INJ	3	0.666667	0.666667	0.666667
 
 ```
 
-## References
+## References:
 
 Bharati, Akshar, Rajeev Sangal, Dipti Misra Sharma, and Lakshmi Bai. "Anncorra: Annotating corpora guidelines for pos and chunk annotation for indian languages." LTRC-TR31 (2006).
 

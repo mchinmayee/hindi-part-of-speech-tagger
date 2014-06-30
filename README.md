@@ -1,6 +1,6 @@
 # Hindi Part of Speech (POS) Tagger
 
-## INSTALL:
+## Usage:
 
 We support only UNIX based systems. There is nothing to do to install.
 
@@ -16,7 +16,7 @@ For a sample output, see [hindi.sample.out.txt](./hindi-part-of-speech-tagger/sr
 
 The output format contains the following columns separated by tab space.
 
-| word | lemma |  **POS tag** | PSP marker | coarse pos | gender | number | case marker |
+| word | lemma |  **POS tag** | suffix | coarse pos | gender | number | case marker |
 | :------: |:-----:| :-----: | :-----: | :-----: | :-----: | :-----: | :-----: | 
 | वर्षों |  वर्ष | **NN** | 0 | n | m | pl | 3 | o |
 
@@ -26,6 +26,9 @@ You probably require only the first 3 columns. The main pos tag is highlighted i
 
 We use IIIT Tagset described in [posguidelines.pdf](./hindi-part-of-speech-tagger/src/master/posguidelines.pdf) (Bharati et al., 2006). See  for more details.
 
+
+```
+
 Fine Grained Tags ~~800 discarding low frequent tags.
 Main POS Tag        25     CC, JJ, NN, VM, . . .
 Coarse POS Tag      11      adj, n, num, unk . . .
@@ -33,6 +36,8 @@ Gender              6      any, f, m, n, punc, null
 Number              4      any, pl, sg, null
 Person              6      1, 2, 2h, 3, any, null
 Case                4      any, d, o, null
+
+```
 
 
 ## Citation
@@ -52,7 +57,9 @@ Current tagger is based on TnT tagger. TnT Tagger is well known for its robustne
 The model files are distributed under GNU GPL license. Feel free to use, modify, and redistribute the files as necessary. But the TnT tagger binary files are free only for research purposes (Get a license of TnT from http://www.coli.uni-saarland.de/~thorsten/tnt/)
 
 This work is supported by Intellitext [1] project and Lexical Computing Ltd [2] (Sketch Engine)
+
 [1] http://corpus.leeds.ac.uk/it/
+
 [2] http://www.sketchengine.co.uk/?page=Website/Company
 
 
@@ -67,7 +74,10 @@ Trained on a corpus containing 30,409,730 tokens
 Lexicon contains 471093 tokens
 
 ## Evaluation Results of Main POS tag:
-==================================
+
+
+
+```
 
 Equal	 :   22129 /  24236 ( 91.31%)
 Different:    2107 /  24236 (  8.69%)
@@ -96,6 +106,8 @@ RDP	56	0.677966	0.714286	0.695652
 QO	24	0.666667	0.750000	0.705882
 WQ	21	1.000000	0.904762	0.950000
 INJ	3	0.666667	0.666667	0.666667
+
+```
 
 ## References
 

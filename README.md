@@ -8,9 +8,9 @@ To tag the sample file given in this software, run this command
 
 >     make tag
 
-The sample file provided with the tool is [hindi.input.txt](./hindi-part-of-speech-tagger/src/master/hindi.input.txt). When you run the command, a file named `hindi.output` is created. For more tagging options, modify the Makefile.
+The sample file provided with the tool is [hindi.input.txt](https://bitbucket.org/sivareddyg/hindi-part-of-speech-tagger/src/master/hindi.input.txt). When you run the command, a file named `hindi.output` is created. For more tagging options, modify the Makefile.
 
-For a sample output, see [hindi.sample.out.txt](./hindi-part-of-speech-tagger/src/master/hindi.sample.out.pdf).
+For a sample output, see [hindi.sample.out.txt](https://bitbucket.org/sivareddyg/hindi-part-of-speech-tagger/src/master/hindi.sample.out.pdf).
 
 ## Output Format:
 
@@ -24,7 +24,7 @@ You probably require only the first 3 columns. The main pos tag is highlighted i
 
 ## Tagset:
 
-We use IIIT Tagset described in [posguidelines.pdf](./hindi-part-of-speech-tagger/src/master/posguidelines.pdf) (Bharati et al., 2006). 
+We use IIIT Tagset described in [posguidelines.pdf](https://bitbucket.org/sivareddyg/hindi-part-of-speech-tagger/src/master/posguidelines.pdf) (Bharati et al., 2006). 
 
 
 ```
@@ -56,21 +56,16 @@ Current tagger is based on TnT tagger. TnT Tagger is well known for its robustne
 
 The model files are distributed under GNU GPL license. Feel free to use, modify, and redistribute the files as necessary. But the TnT tagger binary files are free only for research purposes (Get a license of TnT from http://www.coli.uni-saarland.de/~thorsten/tnt/)
 
-This work is supported by Intellitext [1] project and Lexical Computing Ltd [2] (Sketch Engine)
-
-[1] http://corpus.leeds.ac.uk/it/
-
-[2] http://www.sketchengine.co.uk/?page=Website/Company
-
+This work is supported by [Intellitext](http://corpus.leeds.ac.uk/it/) project and [Lexical Computing Ltd (Sketch Engine)](http://www.sketchengine.co.uk/?page=Website/Company)
 
 ## Contact:
 
-For additional corpora and tools for other languages, please email your queries to
-siva@sivareddy.in
+For additional corpora and tools for other languages, please email your queries to siva@sivareddy.in
 
-## CORPORA DETAILS:
+## Training Details:
 
-Trained on a corpus containing 30,409,730 tokens
+Trained on a corpus containing 30,409,730 tokens.
+
 Lexicon contains 471093 tokens
 
 ## Evaluation Results of Main POS tag:

@@ -24,7 +24,7 @@ You probably require only the first 3 columns. The main pos tag is highlighted i
 
 ## Tagset:
 
-We use IIIT Tagset described in [posguidelines.pdf](./hindi-part-of-speech-tagger/src/master/posguidelines.pdf) (Bharati et al., 2006). See  for more details.
+We use IIIT Tagset described in [posguidelines.pdf](./hindi-part-of-speech-tagger/src/master/posguidelines.pdf) (Bharati et al., 2006). 
 
 
 ```

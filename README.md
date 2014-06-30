@@ -109,6 +109,10 @@ INJ	3	0.666667	0.666667	0.666667
 
 ```
 
+## Acknowledgements:
+
+[Avinesh PVS](http://www.avineshpvs.com/)
+
 ## References:
 
 Bharati, Akshar, Rajeev Sangal, Dipti Misra Sharma, and Lakshmi Bai. "Anncorra: Annotating corpora guidelines for pos and chunk annotation for indian languages." LTRC-TR31 (2006).

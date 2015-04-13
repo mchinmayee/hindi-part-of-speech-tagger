@@ -42,8 +42,23 @@ Case                4      any, d, o, null
 
 ## Citation:
 
-Please cite http://sivareddy.in/downloads wherever required.
+Please cite either [http://sivareddy.in/downloads](http://sivareddy.in/downloads) or the reference below. Paper can be downloaded from: http://sivareddy.in/papers/clia2011IndianCrossLang.pdf
 
+```
+
+@InProceedings{reddy-sharoff:2011:CLIA5,
+  author    = {Reddy, Siva  and  Sharoff, Serge},
+  title     = {Cross Language POS Taggers (and other Tools) for Indian Languages: An Experiment with Kannada using Telugu Resources},
+  booktitle = {Proceedings of the Fifth International Workshop On Cross Lingual Information Access},
+  month     = {November},
+  year      = {2011},
+  address   = {Chiang Mai, Thailand},
+  publisher = {Asian Federation of Natural Language Processing},
+  pages     = {11--19},
+  url       = {http://www.aclweb.org/anthology/W11-3603}
+}
+
+```
 ## Description
 
 The tagger is similar to Model 5 described in Table 2 of (Reddy and Sharoff 2011), but with a focus on Hindi. Short synopsis is presented below. 
@@ -113,3 +128,4 @@ INJ	3	0.666667	0.666667	0.666667
 Bharati, Akshar, Rajeev Sangal, Dipti Misra Sharma, and Lakshmi Bai. "Anncorra: Annotating corpora guidelines for pos and chunk annotation for indian languages." LTRC-TR31 (2006).
 
 Reddy, Siva, and Serge Sharoff. "Cross language POS taggers (and other tools) for Indian languages: An experiment with Kannada using Telugu resources." Cross Lingual Information Access (2011): 11.
+

@@ -32,10 +32,10 @@ while line!="":
 	if line[0]=="@" or len(fields)<4:
 		line= sys.stdin.readline()
 		continue
-	if re.search(u'^[0-9%s][0-9%s\!-\,\/\:-\@\[-\`\{-\~]*$' %(number_range, number_range) , fields[0].decode('utf-8', 'replace'))!=None and fields[1].isdigit():
+	if re.search(u'^[0-9%s][0-9%s\!-\,\/\:-\@\[-\`\{-\~]*$' %(number_range, number_range) , fields[0])!=None and fields[1].isdigit():
 		sys.stdout.write("%s\t\t\t%s\tQC.num....\t%s\n" %(fields[0], fields[1], fields[1]))
-	elif re.search(u"^[\!-\/\:-\@\[-\`\{-\~][\!-\/\:-\@\[-\`\{-\~]+$", fields[0].decode('utf-8', 'replace'))!=None and fields[1].isdigit():
+	elif re.search(u"^[\!-\/\:-\@\[-\`\{-\~][\!-\/\:-\@\[-\`\{-\~]+$", fields[0])!=None and fields[1].isdigit():
 		sys.stdout.write("%s\t\t\t%s\tSYM.punc....\t%s\n" %(fields[0], fields[1], fields[1]))
-	elif re.search(u'^[%s][%s\-\.]*$' %(character_range, character_range), fields[0].decode("utf-8", "replace"))!=None and fields[1].isdigit():
+	elif re.search(u'^[%s][%s\-\.]*$' %(character_range, character_range), fields[0])!=None and fields[1].isdigit():
 		sys.stdout.write(line)
 	line= sys.stdin.readline()

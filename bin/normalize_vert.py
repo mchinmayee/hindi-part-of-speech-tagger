@@ -7,8 +7,8 @@ from normalize_bojar_lrec_2010 import normalise
 
 for line in sys.stdin:
     if line[0]=="<":
-        print line.strip()
+        print (line.strip())
         continue
     line= line.strip("\n")
-    nword= normalise(line.decode("utf-8", 'replace')).encode("utf-8")
-    print "%s" %(nword)
+    nword= normalise(line)
+    print ("%s" %(nword))

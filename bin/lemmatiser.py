@@ -18,11 +18,11 @@ def loadLemmatiser(file):
         line=line.strip()
         word= line.split('\t')[0]
         tags= line.split('\t')[1:]
-        if not lemmaDict.has_key(word):
+        if not word in lemmaDict:
             lemmaDict[word]= {}
         for t in tags:
             (tag, lemma)= t.split(' ')
-            if lemmaDict[word].has_key(tag):
+            if tag in lemmaDict[word]:
                 continue
             if lemma.strip()!="":
                 lemmaDict[word][tag]= lemma
@@ -31,20 +31,20 @@ def lemmatise(f):
     for line in f:
         line= line.strip()
         if line=="":
-            print line
+            print (line)
         elif line[0]=='<':
-            print line
+            print (line)
         else:
             #line.sub("\t+")
             cols= line.split()
             if len(cols)!=2:
-                #print cols
-                print line
+                #print (cols)
+                print (line)
             else:
-                if lemmaDict.has_key(cols[0]) and lemmaDict[cols[0]].has_key(cols[1]):
-                    print "%s\t%s" %(line, lemmaDict[cols[0]][cols[1]])
+                if cols[0] in lemmaDict and cols[1] in lemmaDict[cols[0]]:
+                    print ("%s\t%s" %(line, lemmaDict[cols[0]][cols[1]]))
                 else:
-                    print "%s\t%s" %(line, cols[0]+".")
+                    print ("%s\t%s" %(line, cols[0]+"."))
             
 loadLemmatiser(sys.argv[1])
 lemmatise(sys.stdin)

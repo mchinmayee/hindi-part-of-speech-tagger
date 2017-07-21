@@ -13,7 +13,7 @@ def replace_null(from_chr_num, to_chr_num):
 #replace_null(0x0962, 0x0964)
 #replace_null(0x0971, 0x0972)
 
-vowels_to_be_replaced[unichr(0x0901)]= unichr(0x0902)
+vowels_to_be_replaced[chr(0x0901)]= chr(0x0902)
 vowels_to_be_replaced[u""]= u"न"
 vowels_to_be_replaced[u"ऩ"]= u"न"
 vowels_to_be_replaced[u'ऱ']= u"र"
@@ -33,12 +33,12 @@ def normalise(word):
     # Word should be unicode encoding
     nword=""
     for chr in word:
-        if vowels_to_be_replaced.has_key(chr):
+        if chr in vowels_to_be_replaced:
             nword+= vowels_to_be_replaced[chr]
         else:
             nword+= chr
     return nword
 
 if __name__=="__main__":
-    print normalise(u"भागता")
-    print normalise(u"तृष्णा")            
+    print (normalise(u"भागता")  )
+    print (normalise(u"तृष्णा") )

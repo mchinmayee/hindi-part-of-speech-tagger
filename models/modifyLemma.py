@@ -2,7 +2,7 @@
 import sys
 import re
 for line in sys.stdin:
-	fields= line.decode("utf-8", 'ignore').strip().split()
+	fields= line.strip().split()
 	if re.search(u'^[\u0900-\u097F][\u0900-\u097F\-\.]+$', fields[0])!=None:
 		selFields= []
 		for i in range(0, len(fields[1:]), 2):

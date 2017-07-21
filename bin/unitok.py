@@ -21,7 +21,7 @@ import re
 
 # regular expressions
 # mostly taken from http://www.limsi.fr/Individu/pointal/python/treetaggerwrapper.py
-SGML_TAG = ur"""
+SGML_TAG = r"""
     (?:                         # make enclosing parantheses non-grouping
     <!-- .*? -->                # XML/SGML comment
     |                           # -- OR --
@@ -37,13 +37,13 @@ SGML_TAG = ur"""
     )"""
 SGML_TAG_RE = re.compile(SGML_TAG, re.UNICODE | re.VERBOSE | re.DOTALL)
 
-SGML_END_TAG = ur"</(?!\d)\w[-\.:\w]*>"
+SGML_END_TAG = r"</(?!\d)\w[-\.:\w]*>"
 SGML_END_TAG_RE = re.compile(SGML_END_TAG, re.UNICODE)
 
-IP_ADDRESS = ur"(?:[0-9]{1,3}\.){3}[0-9]{1,3}"
+IP_ADDRESS = r"(?:[0-9]{1,3}\.){3}[0-9]{1,3}"
 IP_ADDRESS_RE = re.compile(IP_ADDRESS)
 
-DNS_HOST = ur"""
+DNS_HOST = r"""
     (?:
         [-a-z0-9]+\.                # Host name
         (?:[-a-z0-9]+\.)*           # Intermediate domains
@@ -91,7 +91,7 @@ DNS_HOST = ur"""
     )"""
 DNS_HOST_RE = re.compile(DNS_HOST, re.VERBOSE | re.IGNORECASE)
 
-URL = ur"""
+URL = r"""
     (?:
 
     # Scheme part
@@ -120,12 +120,12 @@ URL = ur"""
 """
 URL_RE = re.compile(URL, re.VERBOSE | re.IGNORECASE | re.UNICODE)
 
-EMAIL = ur"[-a-z0-9._']+@" + DNS_HOST
+EMAIL = r"[-a-z0-9._']+@" + DNS_HOST
 EMAIL_RE = re.compile(EMAIL, re.VERBOSE | re.IGNORECASE)
 
 # also matches initials
 # FIXME! only match capital letters (?)
-ACRONYM = ur"""
+ACRONYM = r"""
     (?<!\w)     # should not be preceded by a letter
     # sequence of single letter followed by . (e.g. U.S.)
     (?:
@@ -141,19 +141,19 @@ ACRONYM = ur"""
 """
 ACRONYM_RE = re.compile(ACRONYM, re.UNICODE | re.VERBOSE)
 
-CONTROL_CHAR = ur"[\u0000\u0001\u0002\u0003\u0004\u0005\u0006\u0007\u0008" \
-                ur"\u000B\u000C\u000D\u000E\u000F\u0010\u0011\u0012\u0013" \
-                ur"\u0014\u0015\u0016\u0017\u0018\u0019\u001A\u001B\u001C" \
-                ur"\u001D\u001E\u001F]"
+CONTROL_CHAR = r"[\u0000\u0001\u0002\u0003\u0004\u0005\u0006\u0007\u0008" \
+                r"\u000B\u000C\u000D\u000E\u000F\u0010\u0011\u0012\u0013" \
+                r"\u0014\u0015\u0016\u0017\u0018\u0019\u001A\u001B\u001C" \
+                r"\u001D\u001E\u001F]"
 CONTROL_CHAR_RE = re.compile(CONTROL_CHAR, re.UNICODE)
 
-MULTICHAR_PUNCTUATION = ur"(?:[?!]+|``|'')"
+MULTICHAR_PUNCTUATION = r"(?:[?!]+|``|'')"
 MULTICHAR_PUNCTUATION_RE = re.compile(MULTICHAR_PUNCTUATION, re.VERBOSE)
 
 # These punctuation marks should be tokenised to single characters
 # even if a sequence of the same characters is found. For example,
 # tokenise '(((' as ['(', '(', '('] rather than ['((('].
-OPEN_CLOSE_PUNCTUATION = ur"""
+OPEN_CLOSE_PUNCTUATION = r"""
     [
         \u00AB \u2018 \u201C \u2039 \u00BB \u2019 \u201D \u203A \u0028 \u005B
         \u007B \u0F3A \u0F3C \u169B \u2045 \u207D \u208D \u2329 \u23B4 \u2768
@@ -173,10 +173,10 @@ OPEN_CLOSE_PUNCTUATION = ur"""
 """
 OPEN_CLOSE_PUNCTUATION_RE = re.compile(OPEN_CLOSE_PUNCTUATION, re.UNICODE | re.VERBOSE)
 
-PHONE_NUMBER = ur"\+?[0-9]+(?:[-\u2012 ][0-9]+)*"
+PHONE_NUMBER = r"\+?[0-9]+(?:[-\u2012 ][0-9]+)*"
 PHONE_NUMBER_RE = re.compile(PHONE_NUMBER, re.UNICODE)
 
-NUMBER_INTEGER_PART = ur"""
+NUMBER_INTEGER_PART = r"""
     (?:
         0           
         |
@@ -186,7 +186,7 @@ NUMBER_INTEGER_PART = ur"""
 	|
 	[\d]+
     )"""
-NUMBER_DECIMAL_PART = ur"""
+NUMBER_DECIMAL_PART = r"""
     (?:
         [.,]
         [0-9]+
@@ -196,7 +196,7 @@ NUMBER_DECIMAL_PART = ur"""
 	[\d]+
 	(?:[eE][-\u2212+]?[\d]+)?
     )"""
-NUMBER = ur"""
+NUMBER = r"""
     (?:(?:\A|(?<=\s))[-\u2212+])?
     (?:
         %(integer)s %(decimal)s?
@@ -206,17 +206,17 @@ NUMBER = ur"""
 
 NUMBER_RE = re.compile(NUMBER, re.UNICODE | re.VERBOSE)
 
-WHITESPACE = ur"\s+"
+WHITESPACE = r"\s+"
 WHITESPACE_RE = re.compile(WHITESPACE)
 
-SPACE = ur"[\u00A0\u1680\u180E\u2000\u2001\u2002\u2003\u2004\u2005\u2006" \
-         ur"\u2007\u2008\u2009\u200A\u202F\u205F\u3000]"
+SPACE = r"[\u00A0\u1680\u180E\u2000\u2001\u2002\u2003\u2004\u2005\u2006" \
+         r"\u2007\u2008\u2009\u200A\u202F\u205F\u3000]"
 SPACE_RE = re.compile(SPACE, re.UNICODE)
 
-ANY_SEQUENCE = ur"(.)\1*"
+ANY_SEQUENCE = r"(.)\1*"
 ANY_SEQUENCE_RE = re.compile(ANY_SEQUENCE)
 
-HTMLENTITY = ur"&(?:#x?[0-9]+|\w+);"
+HTMLENTITY = r"&(?:#x?[0-9]+|\w+);"
 HTMLENTITY_RE = re.compile(HTMLENTITY)
 
 GLUE_TAG = u'<g/>'
@@ -234,12 +234,12 @@ def htmlent2unicode(htmlent, dont_convert=[]):
         name = m.group(1)
         if name in dont_convert:
             return htmlent
-        if htmlentitydefs.name2codepoint.has_key(name):
+        if name in htmlentitydefs.name2codepoint:
             return unichr(htmlentitydefs.name2codepoint[name])
         else:
             # return entities with unknown names unchanged
             return htmlent
-    raise ValueError, "invalid HTML entity: %s" % htmlent
+    raise ValueError ("invalid HTML entity: %s" % htmlent)
 
 def robust_htmlent2unicode(htmlent, dont_convert=[]):
     try:
@@ -271,13 +271,13 @@ def tokenise_recursively(text, re_list, depth=0):
 
 class LanguageSpecificData:
     clictics = None
-    abbreviations = re.compile(ur"""
+    abbreviations = re.compile(r"""
 (?<!\w)     # should not be preceded by a letter
 (?:
     co\.|inc\.|ltd\.|dr\.|prof\.|jr\.
 )
 """, re.IGNORECASE | re.UNICODE | re.VERBOSE)
-    word = ur"(?:(?![\d])[-\u2010\w])+"
+    word = r"(?:(?![\d])[-\u2010\w])+"
     word_re = re.compile(word, re.UNICODE)
 
 
@@ -346,7 +346,7 @@ def tokenise(text, lsd=LanguageSpecificData(), glue=GLUE_TAG):
 ### LANGUAGE DATA #############################################################
 class EnglishData(LanguageSpecificData):
     def __init__(self):
-        self.clictics = re.compile(ur"""
+        self.clictics = re.compile(r"""
             (?:
                 (?<=\w)     # only consider clictics preceded by a letter
                 (?:
@@ -362,7 +362,7 @@ class EnglishData(LanguageSpecificData):
             (?!\w)          # clictics should not be followed by a letter
             """, re.UNICODE | re.VERBOSE | re.IGNORECASE)
 
-        self.abbreviations = re.compile(ur"""
+        self.abbreviations = re.compile(r"""
 (?<!\w)     # should not be preceded by a letter
 (?:
     Adm\.|Ala\.|Ariz\.|Ark\.|Aug\.|Ave\.|Bancorp\.|Bhd\.|Brig\.|
@@ -385,7 +385,7 @@ class EnglishData(LanguageSpecificData):
 
 class FrenchData(LanguageSpecificData):
     def __init__(self):
-        self.clictics = re.compile(ur"""
+        self.clictics = re.compile(r"""
             (?:
                 # left clictics
                 (?<!\w)     # should not be preceded by a letter
@@ -412,7 +412,7 @@ class FrenchData(LanguageSpecificData):
             )
             """, re.UNICODE | re.VERBOSE)
 
-        self.abbreviations = re.compile(ur"""
+        self.abbreviations = re.compile(r"""
 (?<!\w)     # should not be preceded by a letter
 (?:
     rendez[-\u2010]vous|d['\u2019]abord|d['\u2019]accord|d['\u2019]ailleurs|
@@ -434,7 +434,7 @@ class FrenchData(LanguageSpecificData):
 
 class ItalianData(LanguageSpecificData):
     def __init__(self):
-        self.clictics = re.compile(ur"""
+        self.clictics = re.compile(r"""
             (?:
                 # left clictics
                 (?<!\w)     # should not be preceded by a letter
@@ -447,7 +447,7 @@ class ItalianData(LanguageSpecificData):
             )
             """, re.UNICODE | re.VERBOSE)
 
-        self.abbreviations = re.compile(ur"""
+        self.abbreviations = re.compile(r"""
             (?<!\w)     # should not be preceded by a letter
             (?:
                 L\. | Lit\. | art\. | lett\. | n\. | no\. | pagg\. | prot\. | tel\.
@@ -456,7 +456,7 @@ class ItalianData(LanguageSpecificData):
 
 class GermanData(LanguageSpecificData):
     def __init__(self):
-        self.abbreviations = re.compile(ur"""
+        self.abbreviations = re.compile(r"""
 (?:
     # these can be preceded by a letter
     (?:
@@ -483,7 +483,7 @@ class GermanData(LanguageSpecificData):
 
 class DutchData(LanguageSpecificData):
     def __init__(self):
-        self.abbreviations = re.compile(ur"""
+        self.abbreviations = re.compile(r"""
 (?:
     # these can be preceded by a letter
     (?:
@@ -511,7 +511,7 @@ class DutchData(LanguageSpecificData):
 
 class SpanishData(LanguageSpecificData):
     def __init__(self):
-        self.abbreviations = re.compile(ur"""
+        self.abbreviations = re.compile(r"""
             (?<!\w)     # should not be preceded by a letter
             (?:
                 Ref\. | Vol\. | etc\. | App\. | Rec\.
@@ -520,14 +520,14 @@ class SpanishData(LanguageSpecificData):
 
 class CzechData(LanguageSpecificData):
     def __init__(self):
-        self.clictics = re.compile(ur"""
+        self.clictics = re.compile(r"""
             (?:
                 (?<=\w)     # only consider clictics preceded by a letter
                 -li
             )
             (?!\w)          # clictics should not be followed by a letter
             """, re.UNICODE | re.VERBOSE | re.IGNORECASE)
-        self.abbreviations = re.compile(ur"""
+        self.abbreviations = re.compile(r"""
 (?:
     # these should not be preceded by a letter
     (?<!\w)
@@ -545,7 +545,7 @@ class HindiData(LanguageSpecificData):
         self.word = u"([-\u2010\u0900-\u0963\u0966-\u097f\w])+"
         self.word_re = re.compile(self.word, re.UNICODE)
 
-        self.abbreviations = re.compile(ur"""
+        self.abbreviations = re.compile(r"""
 (?<!\w)     # should not be preceded by a letter
 (?:
     Adm\.|Ala\.|Ariz\.|Ark\.|Aug\.|Ave\.|Bancorp\.|Bhd\.|Brig\.|
@@ -616,9 +616,9 @@ def main(*args):
     try:
         opts, args = getopt.getopt(args, "l:e:nsh",
                 ["language=", "encoding=", "no-glue", "stream", "help"])
-    except getopt.GetoptError, err:
-        print >>sys.stderr, err
-        print >>sys.stderr, usage()
+    except getopt.GetoptError as err:
+        print (err, file=sys.stderr)
+        print (usage(), file=sys.stderr)
         sys.exit(2)
 
     language = 'english'
@@ -629,20 +629,20 @@ def main(*args):
     for o, a in opts:
         if o in ("-l", "--language"):
             language = a.lower()
-            if not LANGUAGE_DATA.has_key(language):
-                print >>sys.stderr, "unsupported language: %s" % a
-                print >>sys.stderr, "supported languages: %s" % ", ".join(LANGUAGE_DATA.keys())
-                print >>sys.stderr
-                print >>sys.stderr, usage()
+            if not language in LANGUAGE_DATA:
+                print ("unsupported language: %s" % a, file=sys.stderr)
+                print ("supported languages: %s" % ", ".join(LANGUAGE_DATA.keys()), file=sys.stderr)
+                print (file=sys.stderr)
+                print (usage(), file=sys.stderr)
                 sys.exit(2)
         if o in ("-e", "--encoding"):
             encoding = a
             try:
                 codecs.lookup(encoding)
             except codecs.LookupError:
-                print >>sys.stderr, "unknown encoding: %s" % encoding
-                print >>sys.stderr
-                print >>sys.stderr, usage()
+                print ("unknown encoding: %s" % encoding, file=sys.stderr)
+                print (file=sys.stderr)
+                print (usage(), file=sys.stderr)
                 sys.exit(2)
         if o in ("-n", "--no-glue"):
             no_glue = True
@@ -651,7 +651,7 @@ def main(*args):
         if o in ("-q", "--quiet"):
             stream = True
         if o in ("-h", "--help"):
-            print usage()
+            print (usage())
             sys.exit(0)
 
     lsd = LANGUAGE_DATA[language]()
@@ -676,31 +676,31 @@ def main(*args):
                 first_line = True
                 for (lineno0, line) in enumerate(fp):
                     try:
-                        uline = unicode(line, encoding)
-                    except UnicodeDecodeError, detail:
+                        uline = line
+                    except UnicodeDecodeError as detail:
                         if not quiet:
-                            print >>sys.stderr, "warning: %s, line %i: %s" % (
-                                    fp_desc, lineno0+1, str(detail))
-                        uline = unicode(line, encoding, 'replace')
+                            print ("warning: %s, line %i: %s" % (
+                                    fp_desc, lineno0+1, str(detail)), file=sys.stderr)
+                        uline = line
                     tokens = tokenise(uline, lsd, glue)
                     if not first_line:
                         tokens.insert(0, u"") # force starting newline
-                    sys.stdout.write(u"\n".join(tokens).encode(encoding, 'replace'))
+                    sys.stdout.write("\n".join(tokens))
                     first_line = False
             else:
                 data = fp.read()
                 try:
-                    udata = unicode(data, encoding)
-                except UnicodeDecodeError, detail:
+                    udata = data
+                except UnicodeDecodeError as detail:
                     if not quiet:
-                        print >>sys.stderr, "warning: %s: %s" % (fp_desc, str(detail))
-                    udata = unicode(data, encoding, 'replace')
+                        print ("warning: %s: %s" % (fp_desc, str(detail)), file=sys.stderr)
+                    udata = data
                 tokens = tokenise(udata, lsd, glue)
-                sys.stdout.write(u"\n".join(tokens).encode(encoding, 'replace'))
+                sys.stdout.write("\n".join(tokens))
         finally:
             if input_file != '-':
                 fp.close()
-            sys.stdout.write(u"\n".encode(encoding))
+            print ("\n".encode(encoding), file=sys.stdout)
 
 if __name__ == "__main__":
     import sys
